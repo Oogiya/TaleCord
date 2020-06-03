@@ -17,10 +17,6 @@ public class Main extends JavaPlugin{
 	
 	private DiscordHandler discord;
 	
-	private File file;
-	
-	private FileConfiguration config;
-	
 	public void onEnable() {
 		instance = this;
 		

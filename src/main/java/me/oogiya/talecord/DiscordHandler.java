@@ -42,7 +42,6 @@ public class DiscordHandler extends ListenerAdapter{
 		}
 
 		mainChannel = getChannel(Main.getPlugin().getConfig().getString("defaultChannel"));
-		//jda.getPresence().setActivity(Activity.watching(String.valueOf(mainChannel.canTalk())));
 
 	}
 	

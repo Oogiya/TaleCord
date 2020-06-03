@@ -1,6 +1,6 @@
-name: Talecraft
+name: Talecord
 version: 1.0
 author: Oogiya
 main: me.oogiya.talecord.Main
-description: The official plugin of "TaleCraft".
+description: TaleCraft Discord Bot
 api-version: 1.13

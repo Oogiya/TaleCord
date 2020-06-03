@@ -20,7 +20,6 @@ public class OnBlockBreak implements Listener {
 	
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e) {
-		Main.getPlugin().getLogger().info("Block broke: " + e.getBlock().getType() + " looking for: " + Announces.BLOCKS.get(0));
 		if (Announces.BLOCKS.contains(e.getBlock().getType())) {
 			if (DiscordHandler.ready) {
 				if (!taskPerPlayer.containsKey(e.getPlayer().getUniqueId())) {
@@ -39,7 +38,6 @@ public class OnBlockBreak implements Listener {
 				int counter = Announces.TIME_BETWEEN_ANNOUNCEMENTS;
 				@Override
 				public void run() {
-					Main.getPlugin().getLogger().info("Counter val: " + String.valueOf(counter));
 					if (counter <= 0) {
 						taskPerPlayer.remove(uuid);
 						this.cancel();
