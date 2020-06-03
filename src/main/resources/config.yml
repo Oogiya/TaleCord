@@ -1,0 +1,9 @@
+discordKey: "discordbotkey"
+
+defaultChannel: "channelname"
+
+blocksToAnnounce:
+   - DIAMOND_ORE
+   - IRON_ORE
+   
+delayPerAnnounce: 10

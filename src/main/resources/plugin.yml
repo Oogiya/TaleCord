@@ -1,0 +1,6 @@
+name: Talecraft
+version: 1.0
+author: Oogiya
+main: me.oogiya.talecord.Main
+description: The official plugin of "TaleCraft".
+api-version: 1.13
