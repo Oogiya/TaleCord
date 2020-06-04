@@ -7,3 +7,6 @@
 ##### EVENTS
 - [ ] On player death
 - [ ] On mob kill
+
+##### CONFIG
+- [ ] Save

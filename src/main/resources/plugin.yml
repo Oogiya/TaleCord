@@ -4,3 +4,12 @@ author: Oogiya
 main: me.oogiya.talecord.Main
 description: TaleCraft Discord Bot
 api-version: 1.13
+
+
+commands:
+    addbtype:
+        description: Add block break type
+        aliases: [abtype]
+    removebtype:
+        description: Remove block break type
+        aliases: [rbtype] 

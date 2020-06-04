@@ -7,3 +7,8 @@ blocksToAnnounce:
    - IRON_ORE
    
 delayPerAnnounce: 10
+
+discordCommandPrefix: "!"
+
+discordAddBlockBreakTypeCommand: "addbtype"
+discordRemoveBlockBreakTypeCommands: "removebtype"

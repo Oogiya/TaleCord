@@ -14,4 +14,6 @@ public class Announces {
 	
 	public static int TIME_BETWEEN_ANNOUNCEMENTS = Main.getPlugin().getConfig().getInt("delayPerAnnounce");
 	
+	public static String MINECRAFT_TO_DISCORD_PERFIX = "[Game]";
+	
 }

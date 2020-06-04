@@ -1,18 +1,23 @@
 package me.oogiya.talecord;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import javax.security.auth.login.LoginException;
 
 import org.bukkit.Bukkit;
+import org.jetbrains.annotations.NotNull;
 
-import com.google.common.util.concurrent.ServiceManager.Listener;
-
+import me.oogiya.talecord.Commands.Discord.AddBlockBreakType;
+import me.oogiya.talecord.Commands.Discord.RemoveBlockBreakType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.events.GenericEvent;
-import net.dv8tion.jda.api.hooks.EventListener;
+import net.dv8tion.jda.api.events.ShutdownEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class DiscordHandler extends ListenerAdapter{
@@ -27,6 +32,7 @@ public class DiscordHandler extends ListenerAdapter{
 
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void discordConnection(String secret) {
 		try {
 			
@@ -41,8 +47,28 @@ public class DiscordHandler extends ListenerAdapter{
 			return;
 		}
 
+		jda.addEventListener(new RemoveBlockBreakType());
+		jda.addEventListener(new AddBlockBreakType());
+		
 		mainChannel = getChannel(Main.getPlugin().getConfig().getString("defaultChannel"));
-
+	}
+	
+	public static void disconnectDiscord() {
+		if (jda != null) {
+            CompletableFuture<Void> shutdownTask = new CompletableFuture<>();
+            jda.addEventListener(new ListenerAdapter() {
+                @Override
+                public void onShutdown(@NotNull ShutdownEvent event) {
+                    shutdownTask.complete(null);
+                }
+            });
+            jda.shutdown();
+            try {
+                shutdownTask.get(5, TimeUnit.SECONDS);
+            } catch (TimeoutException | InterruptedException | ExecutionException e) {
+                Main.getPlugin().getLogger().warning("JDA took too long to shut down, skipping");
+            }
+        }
 	}
 	
 	public static void sendMessage(String message) {
