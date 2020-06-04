@@ -13,3 +13,5 @@ commands:
     removebtype:
         description: Remove block break type
         aliases: [rbtype] 
+    delay:
+        description: Change delay per announce
