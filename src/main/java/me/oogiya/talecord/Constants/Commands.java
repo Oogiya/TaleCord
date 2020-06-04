@@ -14,4 +14,6 @@ public class Commands {
 	
 	public static String REMOVE_BLOCK_BREAK_TYPE = config.getString("discordRemoveBlockBreakTypeCommands");
 	
+	public static String CHANGE_ANNOUNCE_DELAY = config.getString("changeDelayPerAnnounce");
+	
 }

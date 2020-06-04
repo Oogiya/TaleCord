@@ -6,9 +6,17 @@ blocksToAnnounce:
    - DIAMOND_ORE
    - IRON_ORE
    
-delayPerAnnounce: 10
+delayPerAnnounce: 10 # seconds
+
+
+
+#########################
+#    Coammnd related    #
+#########################
 
 discordCommandPrefix: "!"
 
 discordAddBlockBreakTypeCommand: "addbtype"
 discordRemoveBlockBreakTypeCommands: "removebtype"
+
+changeDelayPerAnnounce: "delay"
