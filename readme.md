@@ -5,9 +5,13 @@
 	- [x] Minecraft
 	- [x] Discord
 		 	
-- [x] Change delay (consts)
-	- [ ] Minecraft
+- [x] Change delay
+	- [x] Minecraft
 	- [x] Discord
+	
+- [ ] Change command(Discord)
+
+- [ ] Command - Role managing
 	
 ##### EVENTS
 - [ ] On player death
@@ -15,3 +19,4 @@
 
 ##### CONFIG
 - [ ] Save
+- [ ] Reload
