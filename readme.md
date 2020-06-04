@@ -1,13 +1,14 @@
 ### TODO
 
 ##### COMMANDS
-- [x] Add/Remove block types (consts)
+- [x] Add/Remove block types
 	- [x] Minecraft
 	- [x] Discord
 		 	
-- [ ] Change delay (consts)
+- [x] Change delay (consts)
 	- [ ] Minecraft
-	- [ ] Discord
+	- [x] Discord
+	
 ##### EVENTS
 - [ ] On player death
 - [ ] On mob kill

@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 
 import me.oogiya.talecord.Commands.Discord.AddBlockBreakType;
+import me.oogiya.talecord.Commands.Discord.DelayPerAnnounce;
 import me.oogiya.talecord.Commands.Discord.RemoveBlockBreakType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -49,6 +50,8 @@ public class DiscordHandler extends ListenerAdapter{
 
 		jda.addEventListener(new RemoveBlockBreakType());
 		jda.addEventListener(new AddBlockBreakType());
+		jda.addEventListener(new DelayPerAnnounce());
+		
 		
 		mainChannel = getChannel(Main.getPlugin().getConfig().getString("defaultChannel"));
 	}
