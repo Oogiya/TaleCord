@@ -11,7 +11,11 @@
 	
 - [ ] Change command(Discord)
 
+
 - [ ] Permission support for current commands
+
+- [ ] Command - Role managing
+
 	
 ##### EVENTS
 - [ ] On player death
@@ -22,3 +26,5 @@
 - [ ] Reload
 
 - [x] Custom configurable permissions
+
+
