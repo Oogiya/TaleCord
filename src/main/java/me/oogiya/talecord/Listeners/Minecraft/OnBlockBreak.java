@@ -16,7 +16,6 @@ public class OnBlockBreak implements Listener {
 
 	
 	private HashMap<UUID, Integer> taskPerPlayer = new HashMap<UUID, Integer>();
-	private HashMap<UUID, Integer> tickPerPlayer = new HashMap<UUID, Integer>();
 	
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent e) {

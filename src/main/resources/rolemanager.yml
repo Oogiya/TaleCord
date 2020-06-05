@@ -1,0 +1,16 @@
+# Add/Change roles
+
+
+discordroles:
+   1:
+      name: "✨TaleCraft✨"
+      permissions:
+         - "addbtype"
+         - "removebtype"
+         - "delay"
+
+   2:
+      name: "🌟Respected🌟"
+      permissions:
+         - "delay"
+      

@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import me.oogiya.talecord.Commands.Discord.AddBlockBreakType;
 import me.oogiya.talecord.Commands.Discord.DelayPerAnnounce;
 import me.oogiya.talecord.Commands.Discord.RemoveBlockBreakType;
+import me.oogiya.talecord.Utils.DiscordPermissionsHandler;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -29,15 +30,17 @@ public class DiscordHandler extends ListenerAdapter{
 	
 	public static TextChannel mainChannel = null;
 	
+	public static DiscordPermissionsHandler permissionHandler;
+	
 	public DiscordHandler() {
-
+		permissionHandler = new DiscordPermissionsHandler();
 	}
 	
 	@SuppressWarnings("deprecation")
 	public void discordConnection(String secret) {
 		try {
 			
-			jda = new JDABuilder().setToken(secret).setActivity(Activity.watching("kaki"))
+			jda = new JDABuilder().setToken(secret).setActivity(Activity.watching("Hi, I'm supposed to be configurable"))
 					.build();
 			jda.awaitReady();
 			ready = true;
@@ -47,7 +50,7 @@ public class DiscordHandler extends ListenerAdapter{
 			Bukkit.getPluginManager().disablePlugin(Main.getPlugin());
 			return;
 		}
-
+		
 		jda.addEventListener(new RemoveBlockBreakType());
 		jda.addEventListener(new AddBlockBreakType());
 		jda.addEventListener(new DelayPerAnnounce());

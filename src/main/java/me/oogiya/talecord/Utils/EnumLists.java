@@ -18,4 +18,14 @@ public class EnumLists {
 		
 	}
 	
+	public static List<String> getPlayerPermissions() {
+	
+		List<String> permissionList = new ArrayList<>();
+		
+		
+		
+		return permissionList;
+		
+	}
+	
 }
