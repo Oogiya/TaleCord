@@ -3,11 +3,9 @@ package me.oogiya.talecord.Commands.Discord;
 import org.bukkit.Material;
 
 import me.oogiya.talecord.DiscordHandler;
-import me.oogiya.talecord.Main;
 import me.oogiya.talecord.Constants.Announces;
 import me.oogiya.talecord.Constants.Commands;
 import me.oogiya.talecord.Constants.Messages;
-import me.oogiya.talecord.Utils.DiscordPermissionsHandler;
 import me.oogiya.talecord.Utils.EnumLists;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

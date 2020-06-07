@@ -1,5 +1,9 @@
 ### TODO
 
+- [ ] Unit testing
+
+- [ ] Migrate to TDD
+
 ##### COMMANDS
 - [x] Add/Remove block types
 	- [x] Minecraft
@@ -12,9 +16,7 @@
 - [ ] Change command(Discord)
 
 
-- [ ] Permission support for current commands
-
-- [ ] Command - Role managing
+- [x] Permission support for current commands
 
 	
 ##### EVENTS
