@@ -16,19 +16,17 @@ import net.dv8tion.jda.api.entities.Role;
 public class DiscordPermissionsHandler {
 
 	private FileConfiguration PERMISSIONS;
-	private HashMap<String, List<String>> ROLES; // Key: Role name  // Value: Permissions
-	
+	private HashMap<String, List<String>> ROLES; // Key: Role name // Value: Permissions
+
 	private File file;
-	
-	
+
 	public DiscordPermissionsHandler() {
 		ROLES = new HashMap<>();
 		initializePermissions();
 	}
-	
+
 	public boolean isMemberHasCommandPermission(List<Role> roles, String command) {
-		
-		
+
 		for (Role role : roles) {
 			if (ROLES.keySet().contains(role.getName())) {
 				if (ROLES.get(role.getName()).contains(command)) {
@@ -36,11 +34,10 @@ public class DiscordPermissionsHandler {
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
-	
+
 	private void savePermissionFile() {
 		try {
 			PERMISSIONS.save(this.file);
@@ -48,46 +45,40 @@ public class DiscordPermissionsHandler {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 
 	 */
 	private void initializePermissions() {
-		
+
 		file = new File(Main.getPlugin().getDataFolder() + "/rolemanager.yml");
-		
+
 		if (!file.exists()) {
 			try {
-				Main.getPlugin().getLogger().info("nofiledebug");
 				file.createNewFile();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		}
 		PERMISSIONS = YamlConfiguration.loadConfiguration(file);
-		
+
 		if (!PERMISSIONS.contains("discordroles")) {
-			
+
 			PERMISSIONS.set("discordroles.1.name", "[rolename]");
-			PERMISSIONS.set("discordroles.1.permissions", new ArrayList<String>(Arrays.asList(
-					"[permission1]",
-					"[permission2]")));
-			
+			PERMISSIONS.set("discordroles.1.permissions",
+					new ArrayList<String>(Arrays.asList("[permission1]", "[permission2]")));
+
 			savePermissionFile();
-			
+
 		} else {
 			ConfigurationSection section = PERMISSIONS.getConfigurationSection("discordroles");
-			Main.getPlugin().getLogger().info(section.toString());
-			for (String perm : section.getKeys(false)) { 
-				
+			for (String perm : section.getKeys(false)) {
 
-				ROLES.put(section.getString(perm + ".name"), 
-						section.getStringList(perm + ".permissions"));
-				
-				Main.getPlugin().getLogger().info(ROLES.toString());
+				ROLES.put(section.getString(perm + ".name"), section.getStringList(perm + ".permissions"));
+
 			}
 		}
-		
+
 	}
-	
+
 }
