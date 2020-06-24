@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 
 import me.oogiya.talecord.Commands.Discord.AddBlockBreakType;
+import me.oogiya.talecord.Commands.Discord.ClearMessages;
 import me.oogiya.talecord.Commands.Discord.DelayPerAnnounce;
 import me.oogiya.talecord.Commands.Discord.RemoveBlockBreakType;
 import me.oogiya.talecord.Utils.DiscordPermissionsHandler;
@@ -40,7 +41,7 @@ public class DiscordHandler extends ListenerAdapter{
 	public void discordConnection(String secret) {
 		try {
 			
-			jda = new JDABuilder().setToken(secret).setActivity(Activity.watching("Hi, I'm supposed to be configurable"))
+			jda = new JDABuilder().setToken(secret).setActivity(Activity.listening("to some 8bit juice kekw"))
 					.build();
 			jda.awaitReady();
 			ready = true;
@@ -54,7 +55,7 @@ public class DiscordHandler extends ListenerAdapter{
 		jda.addEventListener(new RemoveBlockBreakType());
 		jda.addEventListener(new AddBlockBreakType());
 		jda.addEventListener(new DelayPerAnnounce());
-		
+		jda.addEventListener(new ClearMessages());
 		
 		mainChannel = getChannel(Main.getPlugin().getConfig().getString("defaultChannel"));
 	}

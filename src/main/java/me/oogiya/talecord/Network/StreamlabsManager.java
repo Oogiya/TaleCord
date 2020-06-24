@@ -1,8 +1,13 @@
 package me.oogiya.talecord.Network;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import io.socket.client.IO.Options;
 import io.socket.client.Socket;
 import me.oogiya.talecord.Main;
+import me.oogiya.talecord.Utils.JSONUtils;
 
 public class StreamlabsManager extends SocketManager {
 
@@ -19,6 +24,10 @@ public class StreamlabsManager extends SocketManager {
 		Socket socket = this.createSocket();
 		
 		socket.connect();
+	}
+	
+	public void stop() {
+		socket.disconnect();
 	}
 	
 	public boolean isConnect() {
@@ -51,8 +60,25 @@ public class StreamlabsManager extends SocketManager {
 
 	@Override
 	protected void onEvent(Object... args) {
-		// TODO Auto-generated method stub
+		JSONObject event = (JSONObject)args[0];
+		JSONArray messages = JSONUtils.extractMessages(event);
+		
+		if (messages == null) {
+			Main.getPlugin().getLogger().info("Bug onEvent");
+			return;
+		}
+		
+		String eventType = JSONUtils.extractJSON(event, "type", String.class, null);
+		
+		if (eventType.equals("follow")) {
+			
+			try {
+				JSONObject msg = messages.getJSONObject(0);
+				Main.getPlugin().getLogger().info("new follower: " + msg.getString("name"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
-
 }

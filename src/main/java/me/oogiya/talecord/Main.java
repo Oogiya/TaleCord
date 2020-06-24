@@ -12,6 +12,7 @@ import me.oogiya.talecord.Listeners.Minecraft.OnBlockBreak;
 import me.oogiya.talecord.Listeners.Minecraft.OnPlayerJoin;
 import me.oogiya.talecord.Network.SocketManager;
 import me.oogiya.talecord.Network.StreamlabsManager;
+import me.oogiya.talecord.Network.WebsocketServer;
 import me.oogiya.talecord.Utils.EnumLists;
 
 public class Main extends JavaPlugin {
@@ -37,8 +38,9 @@ public class Main extends JavaPlugin {
 		registerEvents();
 		registerCommands();
 
-		
+		WebsocketServer.runServer();
 		StreamlabsManager labs = new StreamlabsManager("https://sockets.streamlabs.com");
+		//socketManager = new SocketManager("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IkZDOUVFNTlCNUY5RUM4OEI2OERGIiwicmVhZF9vbmx5Ijp0cnVlLCJwcmV2ZW50X21hc3RlciI6dHJ1ZSwieW91dHViZV9pZCI6IlVDQnZ0UlhBa0JNME95MTJaZ3R1T2NCQSJ9.q5NPXGDWYdhq_WM3yBwZcFGSdMfAcbLgjsa-QoR6Br4");
 	}
 
 	public void registerCommands() {

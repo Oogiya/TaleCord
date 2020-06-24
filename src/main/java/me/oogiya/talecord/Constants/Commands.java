@@ -16,4 +16,6 @@ public class Commands {
 	
 	public static String CHANGE_ANNOUNCE_DELAY = config.getString("changeDelayPerAnnounce");
 	
+	public static String CLEAR = "clear"; // TODO: add to config!!!
+	
 }
